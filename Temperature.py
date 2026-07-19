@@ -72,67 +72,50 @@ call(prompt, temperature=1.0)
 
 #OUTPUT
 '''
-============================================================
+======================================================================
 Temperature: 0.0
-------------------------------------------------------------
+======================================================================
+
+Prompt:
+
+Write exactly one tagline for a coffee shop.
+Output only the tagline.
+Do not provide options.
+Do not include explanations.
+Do not add labels or extra text.
+
+
 Response:
-Here are a few options, playing on different angles:
-
-**Focus on Quality/Taste:**
-*   Crafting the perfect cup, just for you.
-*   Exceptional coffee, every single time.
-*   Where passion meets the perfect pour.
-
-**Focus on Experience/Atmosphere:**
-*   Your cozy corner for exceptional coffee and connection.
-*   Unwind, connect, and savor your perfect moment.
-*   More than just coffee, it's your daily escape.
-
-**Focus on Benefit/Energy:**
-*   Start your day brighter, one delicious sip at a time.
-*   Fueling your day, one perfect cup at a time.
-*   Where every sip sparks your day.
-
-**Simple & Direct:**
-*   Your daily ritual, perfected.
-*   Your daily dose of delicious.
-
-Choose the one that best fits the specific vibe and mission of the coffee shop!
+Your Daily Brew, Your Perfect Moment.
 
 Token Usage:
-Prompt Tokens    : 12
-Completion Tokens: 192
-Total Tokens     : 1408
+----------------------------------------------------------------------
+Prompt Tokens     : 39
+Thought Tokens    : 30
+Completion Tokens : 8
+Total Tokens      : 77
 
-============================================================
+======================================================================
 Temperature: 1.0
-------------------------------------------------------------
+======================================================================
+
+Prompt:
+
+Write exactly one tagline for a coffee shop.
+Output only the tagline.
+Do not provide options.
+Do not include explanations.
+Do not add labels or extra text.
+
+
 Response:
-Here are a few options, playing on different angles:
-
-**Focus on Quality/Product:**
-*   Crafting your perfect cup, every single time.
-
-**Focus on Experience/Comfort:**
-*   Your daily escape, steeped in comfort and community.
-
-**Focus on Energy/Start:**
-*   Ignite your day with the perfect cup.
-
-**Focus on Simplicity/Daily Ritual:**
-*   Your daily ritual, perfected.
-
-**Focus on Community/Connection:**
-*   Connecting people, one cup at a time.
-
-**Short & Sweet:**
-*   Where every sip feels like home.
-
-Choose the one that best fits your shop's unique vibe!
+Your Daily Ritual.
 
 Token Usage:
-Prompt Tokens    : 12
-Completion Tokens: 142
-Total Tokens     : 1273
+----------------------------------------------------------------------
+Prompt Tokens     : 39
+Thought Tokens    : 662
+Completion Tokens : 4
+Total Tokens      : 705
 
 '''
