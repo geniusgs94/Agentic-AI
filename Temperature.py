@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
@@ -6,8 +7,14 @@ from google.genai import types
 # Load environment variables
 load_dotenv()
 
+# Get Gemini API key
+api_key = os.getenv("GEMINI_API_KEY")
+
+if not api_key:
+    raise ValueError("GEMINI_API_KEY not found in .env")
+
 # Create Gemini client
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=api_key)
 
 MODEL = "gemini-2.5-flash"
 
@@ -21,27 +28,45 @@ def call(prompt, temperature):
         ),
     )
 
-    print("=" * 60)
+    print("=" * 70)
     print(f"Temperature: {temperature}")
-    print("-" * 60)
-    print("Response:")
+    print("=" * 70)
+
+    print("\nPrompt:")
+    print(prompt)
+
+    print("\nResponse:")
     print(response.text)
 
+    # Token usage details
+    usage = response.usage_metadata
+
     print("\nToken Usage:")
-    print(f"Prompt Tokens    : {response.usage_metadata.prompt_token_count}")
-    print(f"Completion Tokens: {response.usage_metadata.candidates_token_count}")
-    print(f"Total Tokens     : {response.usage_metadata.total_token_count}")
+    print("-" * 70)
+    print(f"Prompt Tokens     : {usage.prompt_token_count}")
+    print(f"Thought Tokens    : {getattr(usage, 'thoughts_token_count', 0)}")
+    print(f"Completion Tokens : {usage.candidates_token_count}")
+    print(f"Total Tokens      : {usage.total_token_count}")
+
     print()
 
     return response
 
 
-prompt = "Write a one-sentence tagline for a coffee shop."
+# Strong constraint-based prompt
+prompt = """
+Write exactly one tagline for a coffee shop.
+Output only the tagline.
+Do not provide options.
+Do not include explanations.
+Do not add labels or extra text.
+"""
 
-# Deterministic
+
+# Run with low randomness
 call(prompt, temperature=0.0)
 
-# More creative
+# Run with higher randomness
 call(prompt, temperature=1.0)
 
 
